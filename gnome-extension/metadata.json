@@ -1,0 +1,7 @@
+{
+  "uuid": "notella-desktop@notella.local",
+  "name": "Notella Desktop",
+  "description": "Places pinned Notella notes behind application windows on the primary desktop.",
+  "shell-version": ["50"],
+  "version": 1
+}

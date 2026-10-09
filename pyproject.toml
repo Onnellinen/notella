@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "notella"
+version = "0.2.0"
+description = "Local, tray-based rich-text sticky notes for Ubuntu"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = ["PyQt6>=6.4,<7"]
+
+[project.scripts]
+notella = "notella.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["notella*"]
+
+[tool.setuptools.package-data]
+notella = ["assets/*.svg"]

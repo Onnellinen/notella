@@ -1,0 +1,18 @@
+name: Tests
+on: [push, pull_request]
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install desktop test dependencies
+        run: sudo apt-get update && sudo apt-get install -y python3-pyqt6 qt6-wayland desktop-file-utils gjs
+      - name: Check shell syntax
+        run: bash -n install.sh && bash -n uninstall.sh
+      - name: Test
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: /usr/bin/python3 -m unittest discover -s tests -v
+      - name: Test desktop layout
+        run: gjs -m tests/test_layout.js
